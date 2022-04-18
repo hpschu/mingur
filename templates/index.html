@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Mingur</title>
+    <link rel="stylesheet" href="static/css/skeleton.css">
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
    <h1>Welcome to Mingur</h1>
-   {% for post in posts %}
-   <span>
-     <p> post.id </p>
-     <p> post.imgur_id </p>
-     <p> post.title </p>
-     {% for image in post.images %}
-      <p> image.link <p>
-   </span>
+   <div class="container">
+     {% for post in posts %}
+     <div class="row">
+       <div class="twelve columns">
+         <h2> {{ post.title }} </h2>
+         {% for image in post.images %}
+          {% if image.link.endswith('mp4') %}
+            <video controls class="u-full-width">
+              <source src={{ image.link }} type="video/mp4">
+            </video>
+          {% else %}
+            <img src={{ image.link }} class="u-full-width">
+          {% endif %}
+          {% if image.description %}
+          <p> {{ image.description }} </p>
+          {% endif %} 
+         {% endfor %}
+       </div>
+     </div>
+   {% endfor %}
+   </div>
 </body>
 </html>

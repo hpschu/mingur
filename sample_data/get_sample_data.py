@@ -11,6 +11,11 @@ load_dotenv('../.env')
 sys.path.insert(1, getenv('APP_HOME'))
 
 from models import Post, Image
+from bootstrap import AppConfig
+
+conf = AppConfig('../.env')
+
+print(conf.DATABASE_URI)
 
 engine = create_engine(getenv('DATABASE_URI'), echo=True)
 Session = sessionmaker(bind=engine)
