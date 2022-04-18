@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mingur</title>
+</head>
+<body>
+   <h1>Welcome to Mingur</h1>
+   {% for post in posts %}
+   <span>
+     <p> post.id </p>
+     <p> post.imgur_id </p>
+     <p> post.title </p>
+     {% for image in post.images %}
+      <p> image.link <p>
+   </span>
+</body>
+</html>

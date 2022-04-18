@@ -1,0 +1,10 @@
+.env
+alembic.ini
+config.py
+data.json
+./sample_data/*.json
+./sample_data/*.txt
+./venv/
+__pycache__
+*.py[cod]
+migrations/versions/__pycache__/
